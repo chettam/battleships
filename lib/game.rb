@@ -2,10 +2,10 @@ require_relative 'grid'
 
 class Game 
 
-	attr_accessor :grid_a, :grid_b
+	attr_accessor :player_a,:player_b
 
 	def initialize
-		@grid_a =Grid.new
-		@grid_b =Grid.new
+		@player_a = Player.new
+		@player_b = Player.new
 	end
 end

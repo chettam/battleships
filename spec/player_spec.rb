@@ -15,12 +15,20 @@ let(:player) {Player.new}
 		it " a ships list with default ships" do
 			expect(player.ships.length).to eq(player.number_of_ships)
 		end
-
-		
 	end
 
 	context "should know" do
+		it "lost the game" do
+			player.ships.each_with_index do |ship,index|
+				ship.place([index,0],"horizontal",player.grid)
+			end
+			player.ships.each do |ship|
+				ship.cells.each{ |cell| cell.bomb}
+			end
 
+				
+			expect(player.lost?).to be_true
+		end
 	end
 
 	context "should by default" do

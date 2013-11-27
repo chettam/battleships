@@ -16,4 +16,10 @@ class Player
 		number_of_iteration.times{ SHIP_LIST.each{ |ship| @ships << Ship.new(ship)}}
 	end
 
+	def lost?
+		ships.select{|ship| !ship.destroyed? }.count == 0
+	end
+
+
+
 end
