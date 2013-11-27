@@ -28,7 +28,7 @@ class Ship
 	 	elsif  direction == "horizontal"
 	 		@cells = grid.horizontal_cells(origin,length)
 	 	end
-	 	occupy_cells
+	 	occupy_cells if !cells.nil?
 	end
 
 	def destroyed?
