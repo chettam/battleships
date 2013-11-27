@@ -5,12 +5,18 @@ class Grid
 	attr_accessor :cells
 
 	def initialize(size = 10)
-		#cells = []
-		@cells = create(size)
+		@cells = []
+		create(size)
 	end
 
 	def create(size)
-		size.times.inject([]) {|array,_| array << Array.new(10, Cell.new)}
+		size.times {|row_index| @cells << create_grid_row(row_index,size)}
+	end
+
+	def create_grid_row(row_index,size)
+		#row =[]
+		size.times.inject([]) { |row, cell_index| row << Cell.new(row_index,cell_index)}
+		#row
 	end
 
 end

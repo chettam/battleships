@@ -2,6 +2,7 @@ require_relative '../lib/cell'
  
 describe  Cell do
 	let(:cell){Cell.new}
+	let(:grid){Grid.new}
 
 	context "should contain" do
 
@@ -23,6 +24,11 @@ describe  Cell do
 			cell.empty = true
 			cell.bomb
 			expect(cell.hit?).not_to be_true
+		end
+
+		it "it's position" do	
+			expect(grid.cells[0][0].position[:vertical]).to eq(0)
+			expect(grid.cells[0][0].position[:horizontal]).to eq(0)
 		end
 	end
 
