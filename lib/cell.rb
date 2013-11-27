@@ -24,4 +24,8 @@ class Cell
 	def hit?
 		!empty? && bombed?
 	end
+
+	def occupy
+		@empty = false
+	end
 end

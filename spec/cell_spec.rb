@@ -3,6 +3,7 @@ require_relative '../lib/cell'
 describe  Cell do
 	let(:cell){Cell.new}
 	let(:grid){Grid.send(:public, :cells); Grid.new}
+	let(:ship){Ship.send(:public, :cells); Ship.new}
 
 	context "should contain" do
 
