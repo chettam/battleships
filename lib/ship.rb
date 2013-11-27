@@ -10,7 +10,7 @@ class Ship
 	}
 
 	attr_accessor :name, :type, :cells
-	private :cells
+	#private :cells
 
 	def initialize(name, type)
 		@name = name

@@ -3,7 +3,7 @@ require_relative "cell"
 class Grid
 
 	attr_accessor :cells
-	private :cells
+	#private :cells
 
 	def initialize(size = 10)
 		@cells = []
