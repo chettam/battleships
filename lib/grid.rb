@@ -14,9 +14,7 @@ class Grid
 	end
 
 	def create_grid_row(row_index,size)
-		#row =[]
 		size.times.inject([]) { |row, cell_index| row << Cell.new(row_index,cell_index)}
-		#row
 	end
 
 end
