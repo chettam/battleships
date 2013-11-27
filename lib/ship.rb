@@ -10,6 +10,7 @@ class Ship
 	}
 
 	attr_accessor :name, :type, :cells
+	private :cells
 
 	def initialize(name, type)
 		@name = name
@@ -22,19 +23,15 @@ class Ship
 	end
 
 	def place(origin,direction,grid)
-	  if direction == "vertical"
-	 		@cells = find_vertical_cells(origin,grid)
+	  if direction == "vertical"	  	
+	 		@cells = grid.vertical_cells(origin,length)
 	 	elsif  direction == "horizontal"
-	 		@cells = find_horizontal_cells(origin,grid)
+	 		@cells = grid.horizontal_cells(origin,length)
 	 	end
 	end
 
-	def find_vertical_cells(origin,grid)
-		length.times.inject([]) {|array,n| array << grid.cells.slice(origin[0]+n).slice(origin[1])}
-	end
-
-		def find_horizontal_cells(origin,grid)
-		length.times.inject([]) {|array,n| array << grid.cells.slice(origin[0]).slice(origin[1]+n)}
+	def destroyed?
+		cells.map {|cell| cell.hit?}.inject(:&)
 	end
 
 

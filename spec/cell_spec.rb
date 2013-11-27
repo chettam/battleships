@@ -2,7 +2,7 @@ require_relative '../lib/cell'
  
 describe  Cell do
 	let(:cell){Cell.new}
-	let(:grid){Grid.new}
+	let(:grid){Grid.send(:public, :cells); Grid.new}
 
 	context "should contain" do
 
