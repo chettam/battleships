@@ -31,11 +31,6 @@ describe  Cell do
 			expect(grid.cells[0][0].position[:vertical]).to eq(0)
 			expect(grid.cells[0][0].position[:horizontal]).to eq(0)
 		end
-
-		it "when a ship is placed on it" do
-
-		end
-
 	end
 
 	context "should by default" do

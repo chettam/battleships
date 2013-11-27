@@ -27,6 +27,8 @@ describe Ship do
 		it "if it's destroyed" do
 			ship.place([0,0],"vertical",grid)
 			expect(ship.destroyed?).not_to be_true
+			ship.cells.each {|cell| cell.bomb}
+			expect(ship.destroyed?).to be_true
 		end
 
 		it "how to occupy the it 's cells" do
