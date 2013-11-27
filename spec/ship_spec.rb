@@ -50,6 +50,11 @@ describe Ship do
 			expect(ship.cells).to eq(nil)
 		end
 
+		it "if it's placed" do 
+			ship.place([0,0],"vertical",grid)
+			expect(ship.placed?).to be_true
+		end
+
 	end
 
 	context "should by default" do

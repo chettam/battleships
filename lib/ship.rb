@@ -16,6 +16,7 @@ class Ship
 		@name = name
 		@type = type
 		@cells = Array.new(length)
+		@placed = false
 	end
 
 	def length
@@ -28,14 +29,23 @@ class Ship
 	 	elsif  direction == "horizontal"
 	 		@cells = grid.horizontal_cells(origin,length)
 	 	end
-	 	occupy_cells if !cells.nil?
+	 	if !cells.nil?
+	 		occupy_cells
+	 		@placed = true
+	 	end
 	end
 
 	def destroyed?
 		cells.map {|cell| cell.hit?}.inject(:&)
 	end
 
+	def placed?
+		@placed
+	end
+
 	def occupy_cells
 		cells.each {|cell| cell.occupy}
 	end
+
+
 end
