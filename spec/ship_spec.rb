@@ -1,12 +1,13 @@
 require_relative "../lib/ship"
 
 describe Ship do 
-	let(:ship) {Ship.send(:public, :cells); Ship.new('Evgeney','Battleship')}
-	let(:ship2) {Ship.send(:public, :cells); Ship.new('Bruce','Submarine')}
+	let(:ship) {Ship.send(:public, :cells); Ship.new('Battleship')}
+	let(:ship2) {Ship.send(:public, :cells); Ship.new('Submarine')}
 	let(:grid) {Grid.send(:public, :cells); Grid.new}
 	context "should contain" do
 		
 		it "a name and type" do
+			ship.name = "Evgeney"
 			expect(ship.name).to eq('Evgeney')
 			expect(ship.type).to eq('Battleship')
 		end

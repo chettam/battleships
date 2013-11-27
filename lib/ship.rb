@@ -12,8 +12,7 @@ class Ship
 	attr_accessor :name, :type, :cells
 	#private :cells
 
-	def initialize(name, type)
-		@name = name
+	def initialize(type)
 		@type = type
 		@cells = Array.new(length)
 		@placed = false

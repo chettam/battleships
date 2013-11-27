@@ -12,6 +12,10 @@ let(:player) {Player.new}
 			player.number_of_ships = 25
 			expect(player.number_of_ships).to eq(25)
 		end
+		it " a ships list with default ships" do
+			expect(player.ships.length).to eq(player.number_of_ships)
+		end
+
 		
 	end
 
