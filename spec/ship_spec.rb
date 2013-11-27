@@ -23,11 +23,15 @@ describe Ship do
 		it "it's place on the grid" do 
 			ship.place([0,0],"vertical",grid)
 			expect(ship.cells).to eq([grid.cells[0][0],grid.cells[1][0],grid.cells[2][0],grid.cells[3][0]])
-		end		
-
+		end	
 		it "if it's destroyed" do
 			ship.place([0,0],"vertical",grid)
 			expect(ship.destroyed?).not_to be_true
+		end
+
+		it "how to occupy the it 's cells" do
+			ship.place([0,0],"vertical",grid)
+			ship.cells.each {|cell| expect(cell.empty?).not_to be_true}
 		end
 	end
 

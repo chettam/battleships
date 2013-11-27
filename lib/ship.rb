@@ -28,12 +28,14 @@ class Ship
 	 	elsif  direction == "horizontal"
 	 		@cells = grid.horizontal_cells(origin,length)
 	 	end
+	 	occupy_cells
 	end
 
 	def destroyed?
 		cells.map {|cell| cell.hit?}.inject(:&)
 	end
 
-
-
+	def occupy_cells
+		cells.each {|cell| cell.occupy}
+	end
 end
