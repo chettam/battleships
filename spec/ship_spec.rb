@@ -44,6 +44,12 @@ describe Ship do
 			ship.place([0,0],"vertical",grid)
 			ship.cells.each {|cell| expect(cell.empty?).not_to be_true}
 		end
+
+		it "if it's placed out of range" do
+			ship.place([0,7], "horizontal",grid)
+			expect(ship.cells).to eq(nil)
+		end
+
 	end
 
 	context "should by default" do

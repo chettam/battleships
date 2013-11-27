@@ -21,16 +21,19 @@ class Grid
 	def vertical_cells(origin,length)
 		length.times.inject([]) do |array,n|
 			cell =  cells.slice(origin[0]+n).slice(origin[1])
-			!cell.empty? ? return : array << cell
+			!cell.empty? || out_of_range?(origin[0],length)? return : array << cell
 		end
 
 	end
 
 	def horizontal_cells(origin,length)
 		length.times.inject([]) do |array,n| 
-			cell  = cells.slice(origin[0]).slice(origin[1]+n)
-			!cell.empty? ? return : array << cell
+			cell  = cells.slice(origin[0]).slice(origin[1]+n)	
+			!cell.empty? || out_of_range?(origin[1],length) ? return : array << cell
 		end
+	end
 
+	def out_of_range?(origin, length)
+		origin+length > cells.length - 1
 	end
 end
