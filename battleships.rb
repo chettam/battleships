@@ -5,9 +5,7 @@ require_relative 'lib/game'
 
 class BattleShips < Sinatra::Application
 
-	configure do
 		 	@@games =[]
-	end
 
 	 def initialize
   	super

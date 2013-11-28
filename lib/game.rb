@@ -2,11 +2,12 @@ require_relative 'player'
 
 class Game 
 
-	attr_accessor :players ,:name
+	attr_accessor :players ,:name , :identifier
 
 	def initialize(number_of_players = 2,ship_number=5,grid_size=10,game_name="game1")
 		@players =[]
 		create(number_of_players,ship_number,grid_size,game_name)
+		@identifier = self.object_id
 	end
 
 	def looser
