@@ -10,11 +10,11 @@ class Game
 	end
 
 	def looser
-		@looser = players.select{|player| player.lost?}
+		@looser = players.select{|player| player.lost?}.first
 	end
 
 	def winner
-		@winner = players.select{|player| !player.lost?}
+		@winner = players.select{|player| !player.lost?}.first
 	end
 
 	def create(number_of_players,ship_number,grid_size)
