@@ -1,7 +1,6 @@
 
 	<% unless @games.nil? %>
-		<h2> List of current games :</h2>
 		<% @games.each do |game| %>
-		<%= erb :'partials/_game', :layout => false, :locals => { :game => game} %>
+				<%= erb :'partials/_game', :layout => false, :locals => { :game => game} %>
 		<% end %>
 	<% end %>

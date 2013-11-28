@@ -1,2 +1,11 @@
 
-<p> Game : <%= game.name %> </p>
+<p> Game : <%= game[0] %> 
+		<% game[2].each do |player| %>
+		<form method='post' action="/play">
+			<input type="hidden" name="game" value="<%=game[1]%>">
+			<input type="hidden" name="player" value="<%=player.identifier%>">
+			<button type="submit" class="btn btn-default">pick this player !
+			</button>
+		</form>
+		<% end %>
+ </p>

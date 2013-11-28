@@ -21,8 +21,7 @@ class BattleShips < Sinatra::Application
 		number_of_ships   = params[:number_of_ships]
 		new_game = new_game(number_of_players,number_of_ships,grid_size,game_name)
 		@@games << new_game
-		puts @@games.map(&:name).inspect
-		redirect to("/play?game=#{new_game.identifier}&player=#{new_game.players[0].identifier}")
+		redirect "/play?game=#{new_game.identifier}&player=#{new_game.players[0].identifier}",307
 	end
 	
 end

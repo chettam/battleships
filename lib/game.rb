@@ -6,7 +6,6 @@ class Game
 
 	def initialize(number_of_players = 2,ship_number=5,grid_size=10,game_name="game1")
 		@players =[]
-		create(number_of_players,ship_number,grid_size,game_name)
 		@identifier = self.object_id
 	end
 
@@ -23,6 +22,10 @@ class Game
 		number_of_players.to_i.times do
 			 players << Player.new(ship_number,grid_size)
 		end
+	end
+
+	def taken?
+		@players.select{|player| !player.taken?}.length ==0
 	end
 
 end
