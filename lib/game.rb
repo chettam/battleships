@@ -18,7 +18,7 @@ class Game
 	end
 
 	def create(number_of_players,ship_number,grid_size)
-		number_of_players.times do
+		number_of_players.to_i.times do
 			 players << Player.new(ship_number,grid_size)
 		end
 	end

@@ -2,7 +2,7 @@ require_relative '../battleships'
 require 'rack/test'
 
 def app
-  Sinatra::Application
+  BattleShips
 end
 
 describe BattleShips do
@@ -19,8 +19,8 @@ describe BattleShips do
 	context "should by default" do
     it "should have a welcome page" do
         get '/'
-        assert last_reponse.ok?
-        assert_equal "Welcome to Battle Ships !", last_reponse.body
+        expect(last_response).to be_ok
+        expect(last_response.body).to include("Welcome to Battleships")
     end
 	end
 end

@@ -11,15 +11,15 @@ class Grid
 	end
 
 	def create(size)
-		size.times {|row_index| @cells << create_grid_row(row_index,size)}
+		size.to_i.times {|row_index| @cells << create_grid_row(row_index,size)}
 	end
 
 	def create_grid_row(row_index,size)
-		size.times.inject([]) { |row, cell_index| row << Cell.new(row_index,cell_index)}
+		size.to_i.times.inject([]) { |row, cell_index| row << Cell.new(row_index,cell_index)}
 	end
 
 	def vertical_cells(origin,length)
-		length.times.inject([]) do |array,n|
+		length.to_i.times.inject([]) do |array,n|
 			cell =  cells.slice(origin[0]+n).slice(origin[1])
 			!cell.empty? || out_of_range?(origin[0],length)? return : array << cell
 		end
@@ -27,7 +27,7 @@ class Grid
 	end
 
 	def horizontal_cells(origin,length)
-		length.times.inject([]) do |array,n| 
+		length.to_i.times.inject([]) do |array,n| 
 			cell  = cells.slice(origin[0]).slice(origin[1]+n)	
 			!cell.empty? || out_of_range?(origin[1],length) ? return : array << cell
 		end
