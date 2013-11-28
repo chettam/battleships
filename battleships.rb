@@ -5,11 +5,16 @@ require_relative 'lib/game'
 
 class BattleShips < Sinatra::Application
 
-	attr_accessor :games
+	configure do
+		 	@@games =[]
+	end
 
 	 def initialize
   	super
-	 	@games =[]
+	 end
+
+	 def games
+	 	@@games
 	 end
 
 enable :sessions

@@ -2,11 +2,11 @@ require_relative 'player'
 
 class Game 
 
-	attr_accessor :players
+	attr_accessor :players ,:name
 
-	def initialize
+	def initialize(number_of_players = 2,ship_number=5,grid_size=10,game_name="game1")
 		@players =[]
-		create(2,5,10)
+		create(number_of_players,ship_number,grid_size,game_name)
 	end
 
 	def looser
@@ -17,7 +17,8 @@ class Game
 		@winner = players.select{|player| !player.lost?}.first
 	end
 
-	def create(number_of_players,ship_number,grid_size)
+	def create(number_of_players,ship_number,grid_size,game_name)
+		@name = game_name
 		number_of_players.to_i.times do
 			 players << Player.new(ship_number,grid_size)
 		end

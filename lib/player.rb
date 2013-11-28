@@ -5,13 +5,15 @@ class Player
 	
 	SHIP_LIST = ["Aircraft Carrier","Battleship","Submarine","Destroyers","Cruiser"]
 
-	attr_accessor :grid, :ships, :number_of_ships
+	attr_accessor :grid, :ships, :number_of_ships, :identifier 
 
 	def initialize(number_of_ships = 5,size_of_grid = 10)
 		# puts size_of_grid
 		@grid = Grid.new(size_of_grid)
 		@ships =[]
 		@number_of_ships = number_of_ships
+		@identifier = self.object_id
+		@taken = false
 		fill_ships
 	end
 
@@ -24,6 +26,12 @@ class Player
 		ships.select{|ship| !ship.destroyed? }.count == 0
 	end
 
+	def taken?
+		@taken
+	end
 
+	def take
+		@taken = true
+	end
 
 end

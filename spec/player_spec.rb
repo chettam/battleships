@@ -15,6 +15,9 @@ let(:player) {Player.new}
 		it " a ships list with default ships" do
 			expect(player.ships.length).to eq(player.number_of_ships)
 		end
+		it "a unique identifier" do 
+			expect(player.identifier).to eq(player.object_id)
+		end
 	end
 
 	context "should know" do
@@ -25,9 +28,13 @@ let(:player) {Player.new}
 			player.ships.each do |ship|
 				ship.cells.each{ |cell| cell.bomb}
 			end
-
-				
 			expect(player.lost?).to be_true
+		end
+
+		it "if its taken" do
+			expect(player.taken?).not_to be_true
+			player.take
+			expect(player.taken?).to be_true
 		end
 	end
 
